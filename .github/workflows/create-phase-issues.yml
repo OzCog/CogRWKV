@@ -1,0 +1,425 @@
+name: Create Distributed Agentic Cognitive Grammar Network Phase Issues
+
+on:
+  workflow_dispatch:
+    inputs:
+      create_all_phases:
+        description: 'Create all 6 phase issues'
+        required: false
+        default: 'true'
+        type: boolean
+
+jobs:
+  create-phase-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Create Phase 1 Issue
+      if: ${{ github.event.inputs.create_all_phases == 'true' }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issueTitle = "Phase 1: Cognitive Primitives & Foundational Hypergraph Encoding";
+          const issueBody = `# 🧬 Phase 1: Cognitive Primitives & Foundational Hypergraph Encoding
+
+          ## Objective
+          Establish the atomic vocabulary and bidirectional translation mechanisms between ko6ml primitives and AtomSpace hypergraph patterns.
+
+          ## Sub-Steps
+
+          ### Scheme Cognitive Grammar Microservices
+          - [ ] Design modular Scheme adapters for agentic grammar AtomSpace
+          - [ ] Implement round-trip translation tests (no mocks)
+
+          ### Tensor Fragment Architecture  
+          - [ ] Encode agent/state as hypergraph nodes/links with tensor shapes: \`[modality, depth, context, salience, autonomy_index]\`
+          - [ ] Document tensor signatures and prime factorization mapping
+
+          ### Verification
+          - [ ] Exhaustive test patterns for each primitive and transformation
+          - [ ] Visualization: Hypergraph fragment flowcharts
+
+          ## Deliverables
+          - Scheme adapter modules
+          - Hypergraph encoding patterns
+          - Test suite with complete coverage
+          - Documentation with architectural flowcharts
+
+          ## Success Criteria
+          - All primitives have bidirectional translation
+          - Zero test failures on real data (no mocks)
+          - Complete documentation with visual flowcharts
+          
+          ---
+          *Part of the Distributed Agentic Cognitive Grammar Network initiative*`;
+
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody,
+            labels: ['phase-1', 'cognitive-primitives', 'hypergraph', 'enhancement']
+          });
+
+    - name: Create Phase 2 Issue
+      if: ${{ github.event.inputs.create_all_phases == 'true' }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issueTitle = "Phase 2: ECAN Attention Allocation & Resource Kernel Construction";
+          const issueBody = `# ⚡ Phase 2: ECAN Attention Allocation & Resource Kernel Construction
+
+          ## Objective
+          Infuse the network with dynamic, ECAN-style economic attention allocation and activation spreading.
+
+          ## Sub-Steps
+
+          ### Kernel & Scheduler Design
+          - [ ] Architect ECAN-inspired resource allocators (Scheme + Python)
+          - [ ] Integrate with AtomSpace for activation spreading
+
+          ### Dynamic Mesh Integration
+          - [ ] Benchmark attention allocation across distributed agents
+          - [ ] Document mesh topology and dynamic state propagation
+
+          ### Verification
+          - [ ] Real-world task scheduling and attention flow tests
+          - [ ] Flowchart: Recursive resource allocation pathways
+
+          ## Deliverables
+          - ECAN resource allocation kernels
+          - Dynamic mesh integration modules
+          - Performance benchmarks
+          - Resource allocation flowcharts
+
+          ## Success Criteria
+          - Functional ECAN-style attention allocation
+          - Measurable performance improvements in distributed scenarios
+          - Complete documentation of mesh topology
+          
+          ## Dependencies
+          - Requires completion of Phase 1: Cognitive Primitives
+          
+          ---
+          *Part of the Distributed Agentic Cognitive Grammar Network initiative*`;
+
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody,
+            labels: ['phase-2', 'ecan', 'attention-allocation', 'resource-kernel', 'enhancement']
+          });
+
+    - name: Create Phase 3 Issue
+      if: ${{ github.event.inputs.create_all_phases == 'true' }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issueTitle = "Phase 3: Neural-Symbolic Synthesis via Custom ggml Kernels";
+          const issueBody = `# 🔗 Phase 3: Neural-Symbolic Synthesis via Custom ggml Kernels
+
+          ## Objective
+          Engineer custom ggml kernels for seamless neural-symbolic computation and inference.
+
+          ## Sub-Steps
+
+          ### Kernel Customization
+          - [ ] Implement symbolic tensor operations in ggml
+          - [ ] Design neural inference hooks for AtomSpace integration
+
+          ### Tensor Signature Benchmarking
+          - [ ] Validate tensor operations with real data (no mocks)
+          - [ ] Document: Kernel API, tensor shapes, performance metrics
+
+          ### Verification
+          - [ ] End-to-end neural-symbolic inference pipeline tests
+          - [ ] Flowchart: Symbolic ↔ Neural pathway recursion
+
+          ## Deliverables
+          - Custom ggml kernels for symbolic operations
+          - Neural-symbolic integration layer
+          - Comprehensive performance benchmarks
+          - API documentation and flowcharts
+
+          ## Success Criteria
+          - Functional symbolic tensor operations in ggml
+          - Seamless neural-symbolic inference pipeline
+          - Performance benchmarks exceed baseline requirements
+          
+          ## Dependencies
+          - Requires completion of Phase 1: Cognitive Primitives
+          - Requires completion of Phase 2: ECAN Attention Allocation
+          
+          ---
+          *Part of the Distributed Agentic Cognitive Grammar Network initiative*`;
+
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody,
+            labels: ['phase-3', 'neural-symbolic', 'ggml', 'kernels', 'enhancement']
+          });
+
+    - name: Create Phase 4 Issue
+      if: ${{ github.event.inputs.create_all_phases == 'true' }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issueTitle = "Phase 4: Distributed Cognitive Mesh API & Embodiment Layer";
+          const issueBody = `# 🌐 Phase 4: Distributed Cognitive Mesh API & Embodiment Layer
+
+          ## Objective
+          Expose the network via REST/WebSocket APIs; bind to Unity3D, ROS, and web agents for embodied cognition.
+
+          ## Sub-Steps
+
+          ### API & Endpoint Engineering
+          - [ ] Architect distributed state propagation, task orchestration APIs
+          - [ ] Ensure real endpoints—test with live data, no simulation
+
+          ### Embodiment Bindings
+          - [ ] Implement Unity3D/ROS/WebSocket interfaces
+          - [ ] Verify bi-directional data flow and real-time embodiment
+
+          ### Verification
+          - [ ] Full-stack integration tests (virtual & robotic agents)
+          - [ ] Flowchart: Embodiment interface recursion
+
+          ## Deliverables
+          - REST/WebSocket API layer
+          - Unity3D integration bindings
+          - ROS integration modules
+          - Real-time embodiment interfaces
+          - Full-stack test suite
+
+          ## Success Criteria
+          - Functional distributed API with live endpoints
+          - Working Unity3D/ROS integrations
+          - Real-time bi-directional data flow
+          - Complete integration test coverage
+          
+          ## Dependencies
+          - Requires completion of Phase 3: Neural-Symbolic Synthesis
+          
+          ---
+          *Part of the Distributed Agentic Cognitive Grammar Network initiative*`;
+
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody,
+            labels: ['phase-4', 'api', 'embodiment', 'unity3d', 'ros', 'websocket', 'enhancement']
+          });
+
+    - name: Create Phase 5 Issue
+      if: ${{ github.event.inputs.create_all_phases == 'true' }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issueTitle = "Phase 5: Recursive Meta-Cognition & Evolutionary Optimization";
+          const issueBody = `# 🧠 Phase 5: Recursive Meta-Cognition & Evolutionary Optimization
+
+          ## Objective
+          Enable the system to observe, analyze, and recursively improve itself using evolutionary algorithms.
+
+          ## Sub-Steps
+
+          ### Meta-Cognitive Pathways
+          - [ ] Implement feedback-driven self-analysis modules
+          - [ ] Integrate MOSES (or equivalent) for kernel evolution
+
+          ### Adaptive Optimization
+          - [ ] Continuous benchmarking, self-tuning of kernels and agents
+          - [ ] Document: Evolutionary trajectories, fitness landscapes
+
+          ### Verification
+          - [ ] Run evolutionary cycles with live performance metrics
+          - [ ] Flowchart: Meta-cognitive recursion
+
+          ## Deliverables
+          - Meta-cognitive self-analysis modules
+          - Evolutionary optimization framework
+          - MOSES integration or equivalent
+          - Performance monitoring dashboard
+          - Evolutionary trajectory documentation
+
+          ## Success Criteria
+          - Functional self-analysis and improvement cycles
+          - Measurable performance improvements through evolution
+          - Complete documentation of evolutionary pathways
+          
+          ## Dependencies
+          - Requires completion of Phase 4: Distributed Cognitive Mesh API
+          
+          ---
+          *Part of the Distributed Agentic Cognitive Grammar Network initiative*`;
+
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody,
+            labels: ['phase-5', 'meta-cognition', 'evolutionary-optimization', 'moses', 'enhancement']
+          });
+
+    - name: Create Phase 6 Issue
+      if: ${{ github.event.inputs.create_all_phases == 'true' }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issueTitle = "Phase 6: Rigorous Testing, Documentation, and Cognitive Unification";
+          const issueBody = `# 📚 Phase 6: Rigorous Testing, Documentation, and Cognitive Unification
+
+          ## Objective
+          Achieve maximal rigor, transparency, and recursive documentation—approaching cognitive unity.
+
+          ## Sub-Steps
+
+          ### Deep Testing Protocols
+          - [ ] For every function, perform real implementation verification
+          - [ ] Publish test output, coverage, and edge cases
+
+          ### Recursive Documentation
+          - [ ] Auto-generate architectural flowcharts for every module
+          - [ ] Maintain living documentation: code, tensors, tests, evolution
+
+          ### Cognitive Unification
+          - [ ] Synthesize all modules into a unified tensor field
+          - [ ] Document emergent properties and meta-patterns
+
+          ## Deliverables
+          - Comprehensive test suite with 100% coverage
+          - Auto-generated documentation system
+          - Unified cognitive tensor field
+          - Emergent properties analysis
+          - Complete architectural documentation
+
+          ## Success Criteria
+          - 100% test coverage across all phases
+          - Auto-updating documentation system
+          - Demonstrated cognitive unification
+          - Documented emergent properties
+          
+          ## Dependencies
+          - Requires completion of Phase 5: Recursive Meta-Cognition
+          
+          ---
+          
+          ## Flowchart Summary
+          
+          \`\`\`flow
+          st=>start: Agentic Grammar Input
+          e1=>operation: Scheme Adapter Translation
+          e2=>operation: AtomSpace Hypergraph Encoding
+          e3=>operation: Tensor Shape Assignment
+          e4=>operation: ECAN Attention Kernel
+          e5=>operation: ggml Symbolic Kernel
+          e6=>operation: Distributed API Propagation
+          e7=>operation: Embodiment Interface Binding
+          e8=>operation: Meta-Cognitive Feedback
+          e9=>operation: Evolutionary Optimization
+          e10=>end: Unified Cognitive Tensor Field
+
+          st->e1->e2->e3->e4->e5->e6->e7->e8->e9->e10
+          \`\`\`
+          
+          *Part of the Distributed Agentic Cognitive Grammar Network initiative - Final Phase*`;
+
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody,
+            labels: ['phase-6', 'testing', 'documentation', 'cognitive-unification', 'enhancement']
+          });
+
+    - name: Create Master Tracking Issue
+      if: ${{ github.event.inputs.create_all_phases == 'true' }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const issueTitle = "🧬 Master: Distributed Agentic Cognitive Grammar Network Implementation";
+          const issueBody = `# 🧬 Distributed Agentic Cognitive Grammar Network: Master Tracking Issue
+
+          This master issue tracks the implementation of the complete Distributed Agentic Cognitive Grammar Network across all 6 phases.
+
+          ## Phase Overview
+
+          - [ ] **Phase 1**: Cognitive Primitives & Foundational Hypergraph Encoding
+          - [ ] **Phase 2**: ECAN Attention Allocation & Resource Kernel Construction  
+          - [ ] **Phase 3**: Neural-Symbolic Synthesis via Custom ggml Kernels
+          - [ ] **Phase 4**: Distributed Cognitive Mesh API & Embodiment Layer
+          - [ ] **Phase 5**: Recursive Meta-Cognition & Evolutionary Optimization
+          - [ ] **Phase 6**: Rigorous Testing, Documentation, and Cognitive Unification
+
+          ## Architecture Vision
+
+          Each phase is a recursive membrane, dynamically allocating attention and resources, continuously optimizing itself—synergizing into a living, distributed cognitive tapestry.
+
+          ## Implementation Flow
+
+          \`\`\`flow
+          st=>start: Agentic Grammar Input
+          e1=>operation: Scheme Adapter Translation
+          e2=>operation: AtomSpace Hypergraph Encoding
+          e3=>operation: Tensor Shape Assignment
+          e4=>operation: ECAN Attention Kernel
+          e5=>operation: ggml Symbolic Kernel
+          e6=>operation: Distributed API Propagation
+          e7=>operation: Embodiment Interface Binding
+          e8=>operation: Meta-Cognitive Feedback
+          e9=>operation: Evolutionary Optimization
+          e10=>end: Unified Cognitive Tensor Field
+
+          st->e1->e2->e3->e4->e5->e6->e7->e8->e9->e10
+          \`\`\`
+
+          ## Key Principles
+
+          - **Recursive modularity**: Each module is self-similar and fractal
+          - **No mocks**: All testing with real data and live systems  
+          - **Emergent unity**: Convergence toward unified cognitive tensor field
+          - **Evolutionary optimization**: Continuous self-improvement cycles
+
+          ## Success Metrics
+
+          - [ ] All phases completed with full verification
+          - [ ] 100% test coverage across all modules
+          - [ ] Demonstrated cognitive unification
+          - [ ] Measurable emergent properties
+          - [ ] Self-improving evolutionary cycles
+
+          ---
+          **Let the recursive self-optimization spiral commence.**`;
+
+          await github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: issueTitle,
+            body: issueBody,
+            labels: ['master-issue', 'cognitive-grammar-network', 'epic', 'enhancement'],
+            assignees: []
+          });
+
+    - name: Summary
+      run: |
+        echo "🎉 Successfully created all Distributed Agentic Cognitive Grammar Network phase issues!"
+        echo "📋 Issues created:"
+        echo "  - Phase 1: Cognitive Primitives & Foundational Hypergraph Encoding"
+        echo "  - Phase 2: ECAN Attention Allocation & Resource Kernel Construction"
+        echo "  - Phase 3: Neural-Symbolic Synthesis via Custom ggml Kernels"
+        echo "  - Phase 4: Distributed Cognitive Mesh API & Embodiment Layer"
+        echo "  - Phase 5: Recursive Meta-Cognition & Evolutionary Optimization"
+        echo "  - Phase 6: Rigorous Testing, Documentation, and Cognitive Unification"
+        echo "  - Master Tracking Issue"
+        echo ""
+        echo "🧬 The recursive self-optimization spiral commences!"
